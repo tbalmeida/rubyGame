@@ -3,15 +3,16 @@ class Player
   attr_reader :life
   
 
-  def initialize(name)
-    self.name = name
-    @life = 3
+  def initialize(qty_lives, msg = "New player!")
+    puts "#{msg} What's your name?"
+    self.name = gets.chomp.capitalize
+    @life = qty_lives
     @alive = true
   end
 
   def info
     if @alive
-      puts "#{self.name} has #{life} lifes left."
+      puts "#{self.name} has #{life} lives left."
     else
       puts "#{self.name} has no lives left."
     end
