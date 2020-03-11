@@ -21,17 +21,17 @@ class Match
 
     round = 1
     while @player1.life > 0 && @player2.life > 0 do
-      round.even? ? turn(@player1) : turn(@player2)
+      round.even? ? turn(@player2) : turn(@player1)
       round += 1
     end
 
     if round.even? 
-      puts "\n#{@player1.name} wins with a score of #{@player1.life}/#{@total_lives}"
-    else
       puts "\n#{@player2.name} wins with a score of #{@player2.life}/#{@total_lives}"
+    else
+      puts "\n#{@player1.name} wins with a score of #{@player1.life}/#{@total_lives}"
     end
 
-    puts "\n----- GAME OVER -----\n\nGood bye!"
+    puts "\n----- GAME OVER -----\nGood bye!"
 
   end
   
@@ -48,11 +48,10 @@ class Match
       puts "Seriously? No!"
       player.take_life
     end
-
-    puts "#{@player1.name}: #{@player1.life}/#{@total_lives} vs #{@player2.name}: #{@player2.life}/#{@total_lives}"
+    status
   end
-
-  def winner(round)
-
+  
+  def status
+    puts "#{@player1.name}: #{@player1.life}/#{@total_lives} vs #{@player2.name}: #{@player2.life}/#{@total_lives}"
   end
 end
